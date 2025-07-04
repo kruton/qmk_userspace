@@ -25,10 +25,10 @@ enum layer_names {
 };
 
 enum custom_keycodes {
-    S_BSKTC = SAFE_RANGE,
+    S_RKROL = SAFE_RANGE,
     S_ODEJY,
     S_RCKBY,
-    S_DOEDR,
+    S_IMPRL,
     S_SCALE,
     S_ONEUP,
     S_COIN,
@@ -37,10 +37,10 @@ enum custom_keycodes {
 };
 
 #ifdef AUDIO_ENABLE
-  float song_basketcase[][2] = SONG(BASKET_CASE);
+  float song_rick_roll[][2] = SONG(RICK_ROLL);
   float song_ode_to_joy[][2]  = SONG(ODE_TO_JOY);
   float song_rock_a_bye_baby[][2]  = SONG(ROCK_A_BYE_BABY);
-  float song_doe_a_deer[][2]  = SONG(DOE_A_DEER);
+  float song_imperial_march[][2]  = SONG(IMPERIAL_MARCH);
   float song_scale[][2]  = SONG(MUSIC_SCALE_SOUND);
   float song_coin[][2]  = SONG(COIN_SOUND);
   float song_one_up[][2]  = SONG(ONE_UP_SOUND);
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap _CL: Control layer
    */
 [_CL] = LAYOUT(
-  LM_NEXT,S_ODEJY,S_RCKBY,S_DOEDR,S_SCALE,S_ONEUP,S_COIN ,S_SONIC,S_ZELDA,S_BSKTC,_______,_______,_______,     LM_TOGG,           LM_BRIU,
+  LM_NEXT,S_ODEJY,S_RCKBY,S_IMPRL,S_SCALE,S_ONEUP,S_COIN ,S_SONIC,S_ZELDA,S_RKROL,_______,_______,_______,     LM_TOGG,           LM_BRIU,
   _______,_______,_______,_______,QK_BOOT,_______,_______,_______,_______,_______,_______,_______,_______,_______,                LM_BRID,
   _______,_______,MO(_CL),_______,_______,_______,_______,_______,_______,_______,_______,_______,    _______,
   _______,        _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,        _______,        _______,
@@ -101,10 +101,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         #ifdef AUDIO_ENABLE
-            case S_BSKTC:
+            case S_RKROL:
                 if (record->event.pressed) {
                     stop_all_notes();
-                    PLAY_SONG(song_basketcase);
+                    PLAY_SONG(song_rick_roll);
                 }
                 return false;
             case S_ODEJY:
@@ -119,10 +119,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     PLAY_SONG(song_rock_a_bye_baby);
                 }
                 return false;
-            case S_DOEDR:
+            case S_IMPRL:
                 if (record->event.pressed) {
                     stop_all_notes();
-                    PLAY_SONG(song_doe_a_deer);
+                    PLAY_SONG(song_imperial_march);
                 }
                 return false;
             case S_SCALE:
